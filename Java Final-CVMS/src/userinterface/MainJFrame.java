@@ -22,6 +22,7 @@ import userinterface.SystemAdminWorkArea.ModifyHospitalJPanel;
 /**
  *
  * @author Lingfeng
+ * @author charusingh
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -42,9 +43,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
-      //  this.setVisible(true);
 
-        //system.setCustomerDirectory(new CustomerDirectory());
         customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
@@ -75,6 +74,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1680, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutJButton.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
@@ -99,11 +99,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(222, 213, 213));
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USER NAME");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 140, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("PASSWORD");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 100, 30));
@@ -113,6 +115,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 240, 150, -1));
 
         loginJButton.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        loginJButton.setForeground(new java.awt.Color(204, 204, 204));
         loginJButton.setText("LOGIN");
         loginJButton.setBorder(new javax.swing.border.MatteBorder(null));
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +126,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 118, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(204, 204, 204));
         jButton1.setText("FORGOT PASSWORD");
         jButton1.setBorder(new javax.swing.border.MatteBorder(null));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +140,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, 140, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(204, 204, 204));
         jButton2.setText("CHANGE PASSWORD");
         jButton2.setBorder(new javax.swing.border.MatteBorder(null));
         jButton2.setVisible(false);
@@ -150,12 +155,14 @@ public class MainJFrame extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         label1.setText("NEW PASSWORD");
         label1.setVisible(false);
-        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 360, 120, -1));
+        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 360, 150, -1));
 
         container.setLayout(new java.awt.CardLayout());
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Divya Sharma\\Downloads\\Java Final-CVMS\\Java Final-CVMS\\src\\Assests\\coronavirus.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/coronavirus.jpg"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(1680, 700));
+        jLabel3.setMinimumSize(new java.awt.Dimension(1400, 600));
         jLabel3.setPreferredSize(new java.awt.Dimension(1680, 700));
         container.add(jLabel3, "card2");
 
@@ -198,7 +205,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         String password = String.valueOf(passwordField.getPassword());
         if (userNameJTextField.getText().isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Username and Password field's cannot be empty");
+            JOptionPane.showMessageDialog(null, "Username and Password cannot be empty");
             return;
         } else if (system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), password) == null) {
             JOptionPane.showMessageDialog(null, "Invalid UserName");

@@ -56,13 +56,15 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         DefaultTableModel deftabmdl = (DefaultTableModel) tblCustomer.getModel();
         deftabmdl.setRowCount(0);
         for(Customer customer : ecosystem.getCustomerDirectory().getCustomerDirectory()){
-            Object [] row = new Object[6];
+            Object [] row = new Object[7];
             row[0] = customer;
             row[1] = customer.getName();
-            row[2] = customer.getEmail();
+            row[2] = customer.getAge();
             row[3] = customer.getHomeAddress();
-            row[4] = customer.getPhoneNumber();
-            row[5] = customer.getAge();
+            row[4] = customer.getEmail();
+            row[5] = customer.getPhoneNumber();
+            row[6] = customer.getUserName();
+          
             deftabmdl.addRow(row);
         }
     }
@@ -96,17 +98,17 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                 btnModifyActionPerformed(evt);
             }
         });
-        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 305, 165, 25));
+        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 165, 25));
 
         btnCreate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnCreate.setText("CREATE");
+        btnCreate.setText("ADD");
         btnCreate.setBorder(new javax.swing.border.MatteBorder(null));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 305, 155, 25));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 155, 25));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnBack.setText("BACK");
@@ -121,19 +123,16 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         titleManageCustomer.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         titleManageCustomer.setForeground(new java.awt.Color(255, 255, 255));
         titleManageCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageCustomer.setText("MANAGE CUSTOMER");
+        titleManageCustomer.setText("MANAGE PATIENT");
         add(titleManageCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 780, -1));
 
         tblCustomer.setBorder(new javax.swing.border.MatteBorder(null));
         tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Username", "Name ", "Email Address", "Address", "Mobile Number", "Age"
+                "Name", "Age", "Address", "Email", "Phone Number", "Username"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -156,10 +155,11 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 305, 116, 25));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 116, 25));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
@@ -178,7 +178,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreatePatientJPanel crtCust = new CreatePatientJPanel(userProcessContainer, ecosystem, customerdirectory);
+        AddPatientJPanel crtCust = new AddPatientJPanel(userProcessContainer, ecosystem, customerdirectory);
         userProcessContainer.add("CreateCustomersJPanel",crtCust);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

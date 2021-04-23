@@ -36,7 +36,7 @@ public class ManagePharmacyJPanel extends javax.swing.JPanel {
     }
      
      public void populateTable() {
-        DefaultTableModel deftabmdl = (DefaultTableModel) tblDeliveryMan.getModel();
+        DefaultTableModel deftabmdl = (DefaultTableModel) tblPharmacy.getModel();
         deftabmdl.setRowCount(0);
         for(DeliveryMan delman : deliveryMandirectory.getDeliveryManDirectory()){
             Object [] row = new Object[6];
@@ -50,7 +50,7 @@ public class ManagePharmacyJPanel extends javax.swing.JPanel {
     }
      
       public void refreshTable() {
-        DefaultTableModel deftabmdl = (DefaultTableModel) tblDeliveryMan.getModel();
+        DefaultTableModel deftabmdl = (DefaultTableModel) tblPharmacy.getModel();
         deftabmdl.setRowCount(0);
         for(DeliveryMan delman : deliveryMandirectory.getDeliveryManDirectory()){
             Object [] row = new Object[6];
@@ -73,10 +73,10 @@ public class ManagePharmacyJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        titleManageDelivery = new javax.swing.JLabel();
+        titleManagePharmacy = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDeliveryMan = new javax.swing.JTable();
-        btnCreate = new javax.swing.JButton();
+        tblPharmacy = new javax.swing.JTable();
+        btnAdd = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -94,45 +94,45 @@ public class ManagePharmacyJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 46, 70, 23));
 
-        titleManageDelivery.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleManageDelivery.setForeground(new java.awt.Color(255, 255, 255));
-        titleManageDelivery.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageDelivery.setText("MANAGE DELIVERY");
-        add(titleManageDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 844, -1));
+        titleManagePharmacy.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        titleManagePharmacy.setForeground(new java.awt.Color(255, 255, 255));
+        titleManagePharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleManagePharmacy.setText("MANAGE PHARMACY");
+        add(titleManagePharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 844, -1));
 
-        tblDeliveryMan.setBorder(new javax.swing.border.MatteBorder(null));
-        tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
+        tblPharmacy.setBorder(new javax.swing.border.MatteBorder(null));
+        tblPharmacy.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Name ", "Email Address", "Address", "Mobile Number", "Age"
+                "Name ", "Email Address", "Address", "Mobile Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblDeliveryMan);
+        jScrollPane1.setViewportView(tblPharmacy);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, 854, 132));
 
-        btnCreate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnCreate.setText("CREATE");
-        btnCreate.setBorder(new javax.swing.border.MatteBorder(null));
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        btnAdd.setText("ADD");
+        btnAdd.setBorder(new javax.swing.border.MatteBorder(null));
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 273, 188, 23));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 273, 188, 23));
 
         btnModify.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnModify.setText("MODIFY");
@@ -155,7 +155,7 @@ public class ManagePharmacyJPanel extends javax.swing.JPanel {
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(674, 273, 180, 23));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Divya Sharma\\Downloads\\Java Final-CVMS\\Java Final-CVMS\\src\\Assests\\coronavirus.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/resize-1618977884522140887Pharmacy.jpeg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -166,22 +166,22 @@ public class ManagePharmacyJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        CreatePharmacyJPanel crtdel = new CreatePharmacyJPanel(userProcessContainer, ecosystem, deliveryMandirectory);
+        AddPharmacyJPanel crtdel = new AddPharmacyJPanel(userProcessContainer, ecosystem, deliveryMandirectory);
         userProcessContainer.add("CreateDeliveryManJPanel",crtdel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnCreateActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblDeliveryMan.getSelectedRow();
+        int selectedRow = tblPharmacy.getSelectedRow();
         if(selectedRow < 0) {
             JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        DeliveryMan delman = (DeliveryMan)tblDeliveryMan.getValueAt(selectedRow,0);
+        DeliveryMan delman = (DeliveryMan)tblPharmacy.getValueAt(selectedRow,0);
         ModifyPharmacyJPanel modifyDelman = new ModifyPharmacyJPanel(userProcessContainer, ecosystem, deliveryMandirectory, delman);
         userProcessContainer.add("ModifyDeliveryManJPanel",modifyDelman);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
@@ -190,26 +190,26 @@ public class ManagePharmacyJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblDeliveryMan.getSelectedRow();
+        int selectedRow = tblPharmacy.getSelectedRow();
         if(selectedRow < 0) {
             JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        DeliveryMan deliveryMan = (DeliveryMan) tblDeliveryMan.getValueAt(selectedRow, 0);
+        DeliveryMan deliveryMan = (DeliveryMan) tblPharmacy.getValueAt(selectedRow, 0);
         deliveryMandirectory.removeDeliveryMan(deliveryMan);
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnModify;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblDeliveryMan;
-    private javax.swing.JLabel titleManageDelivery;
+    private javax.swing.JTable tblPharmacy;
+    private javax.swing.JLabel titleManagePharmacy;
     // End of variables declaration//GEN-END:variables
 }
