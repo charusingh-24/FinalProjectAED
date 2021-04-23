@@ -1,4 +1,4 @@
-package Business;
+package Business.Ecosystem;
 
 import Business.Employee.Employee;
 import Business.Role.SystemAdminRole;

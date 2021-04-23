@@ -5,7 +5,7 @@
 package Business.Role;
 
 import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Pharmacy.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;

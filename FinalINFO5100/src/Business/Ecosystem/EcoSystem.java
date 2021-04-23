@@ -3,15 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business;
+package Business.Ecosystem;
 
-
-import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryManDirectory;
-import Business.Menu.MenuDirectory;
-import Business.Order.OrderDirectory;
-import Business.Restaurant.RestaurantDirectory;
-import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
 
