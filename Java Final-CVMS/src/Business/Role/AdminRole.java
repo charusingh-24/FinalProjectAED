@@ -13,7 +13,7 @@ import Business.Order.OrderDirectory;
 import Business.Organization;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
-import userinterface.RestaurantAdminRole.AdminWorkAreaJPanel;
+import userinterface.HospitalAdminRole.AdminWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**

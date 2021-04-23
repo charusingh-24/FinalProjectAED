@@ -17,6 +17,7 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.SystemAdminWorkArea.ModifyHospitalJPanel;
 
 /**
  *
@@ -41,7 +42,8 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
-       
+      //  this.setVisible(true);
+
         //system.setCustomerDirectory(new CustomerDirectory());
         customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
@@ -59,48 +61,21 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
-        loginJLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        logoutJButton = new javax.swing.JButton();
         userNameJTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         loginJButton = new javax.swing.JButton();
-        logoutJButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jButton2 = new javax.swing.JButton();
+        label1 = new java.awt.Label();
         container = new javax.swing.JPanel();
-        lblTitle = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanel1.setBackground(new java.awt.Color(209, 133, 133));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("USER NAME");
-
-        userNameJTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        userNameJTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameJTextFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("PASSWORD");
-
-        passwordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        loginJButton.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
-        loginJButton.setText("LOGIN");
-        loginJButton.setBorder(new javax.swing.border.MatteBorder(null));
-        loginJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginJButtonActionPerformed(evt);
-            }
-        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutJButton.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
         logoutJButton.setText("LOGOUT");
@@ -111,109 +86,98 @@ public class MainJFrame extends javax.swing.JFrame {
                 logoutJButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(logoutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 20, 92, 26));
+        logoutJButton.setVisible(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(loginJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(128, 128, 128)
-                                .addComponent(loginJLabel))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        userNameJTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        userNameJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameJTextFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 150, -1));
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {passwordField, userNameJTextField});
+        jLabel1.setBackground(new java.awt.Color(222, 213, 213));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("USER NAME");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 140, 30));
 
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
-        );
+        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("PASSWORD");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 100, 30));
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        passwordField.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        passwordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 240, 150, -1));
 
-        container.setBackground(new java.awt.Color(151, 145, 151));
+        loginJButton.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        loginJButton.setText("LOGIN");
+        loginJButton.setBorder(new javax.swing.border.MatteBorder(null));
+        loginJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginJButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 118, 20));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        jButton1.setText("FORGOT PASSWORD");
+        jButton1.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 150, 20));
+
+        jPasswordField1.setVisible(false);
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, 140, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jButton2.setText("CHANGE PASSWORD");
+        jButton2.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton2.setVisible(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 140, -1));
+
+        label1.setAlignment(java.awt.Label.CENTER);
+        label1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        label1.setText("NEW PASSWORD");
+        label1.setVisible(false);
+        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 360, 120, -1));
+
         container.setLayout(new java.awt.CardLayout());
 
-        lblTitle.setBackground(new java.awt.Color(86, 64, 0));
-        lblTitle.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("FOOD DELIVERY SYSTEM");
-        container.add(lblTitle, "card8");
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/coronavirus.jpg"))); // NOI18N
+        jLabel3.setPreferredSize(new java.awt.Dimension(1680, 700));
+        container.add(jLabel3, "card2");
 
-        jSplitPane1.setRightComponent(container);
-
-        getContentPane().add(jSplitPane1);
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        
-        String password =String.valueOf(passwordField.getPassword());
-        if(userNameJTextField.getText().isEmpty() || password.isEmpty()) {
-           JOptionPane.showMessageDialog(null,"Username and Password field's cannot be empty");
-           return;
-        }
-        else if(system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), password) == null) {
-           JOptionPane.showMessageDialog(null,"Invalid UserName");
-            return;
-       }
-        UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), password);
-           System.out.println("ECOSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
-        
-              CardLayout layout = (CardLayout) container.getLayout();
-        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory));
-        layout.next(container);
-        logoutJButton.setEnabled(true);
-        loginJButton.setEnabled(false);
-    }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
         logoutJButton.setEnabled(false);
         userNameJTextField.setEnabled(true);
         passwordField.setEnabled(true);
         loginJButton.setEnabled(true);
+
+        loginJButton.setVisible(true);
+        jLabel1.setVisible(true);
+        jLabel2.setVisible(true);
+        userNameJTextField.setVisible(true);
+        passwordField.setVisible(true);
+        jButton1.setVisible(true);
+        logoutJButton.setVisible(false);
+        container.setVisible(false);
 
         userNameJTextField.setText("");
         passwordField.setText("");
@@ -230,49 +194,81 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameJTextFieldActionPerformed
 
+    private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
+
+        String password = String.valueOf(passwordField.getPassword());
+        if (userNameJTextField.getText().isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Username and Password field's cannot be empty");
+            return;
+        } else if (system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), password) == null) {
+            JOptionPane.showMessageDialog(null, "Invalid UserName");
+            return;
+        }
+        UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), password);       
+        System.out.println("ECOSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
+
+        container.setVisible(true);
+        CardLayout layout = (CardLayout) container.getLayout();
+        container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory));
+        layout.next(container);
+        logoutJButton.setEnabled(true);
+        loginJButton.setVisible(false);
+        logoutJButton.setVisible(true);
+        jButton1.setVisible(false);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jPasswordField1.setVisible(false);
+        jButton2.setVisible(false);
+        label1.setVisible(false);
+        userNameJTextField.setVisible(false);
+        passwordField.setVisible(false);
+    }//GEN-LAST:event_loginJButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            
+        label1.setVisible(true);
+        jPasswordField1.setVisible(true);
+        jButton2.setVisible(true);
+//        Forgotpaswrd fPassword = new Forgotpaswrd();
+        // TODO add your handling code here:
+//        this.setVisible(false);
+//        Forgotpaswrd fpassword = new Forgotpaswrd();
+//        fpassword.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        
+        String newPassword = String.valueOf(jPasswordField1.getPassword());
+        if (userNameJTextField.getText().isEmpty() || newPassword.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Username, New Password field's cannot be empty");
+            return;
+        } else if (system.getUserAccountDirectory().forgotPasswordUser(userNameJTextField.getText()) == null) {
+            JOptionPane.showMessageDialog(null, "Invalid UserName");
+            return;
+        }
+        UserAccount userAccount = system.getUserAccountDirectory().forgotPasswordUser(userNameJTextField.getText());
+        system.getUserAccountDirectory().updateUserAccount(userAccount, newPassword);
+        jPasswordField1.setVisible(false);
+        jButton2.setVisible(false);
+        label1.setVisible(false);
+        jPasswordField1.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainJFrame().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel container;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jPasswordField1;
+    private java.awt.Label label1;
     private javax.swing.JButton loginJButton;
-    private javax.swing.JLabel loginJLabel;
     private javax.swing.JButton logoutJButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userNameJTextField;
