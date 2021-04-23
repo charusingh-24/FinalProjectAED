@@ -130,12 +130,12 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Divya Sharma\Downloads\Java Final-CVMS\Java Final-CVMS\src\Assests\coronavirus.jpg"/>
+              <Image iconType="3" name="/Assests/coronavirus.jpg"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="1000" height="530"/>
+              <AbsoluteConstraints x="0" y="0" width="1680" height="700"/>
             </Constraint>
           </Constraints>
         </Component>

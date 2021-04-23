@@ -16,9 +16,6 @@ import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
-import Business.WorkQueue.WorkRequest;
-import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -131,8 +128,6 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         refreshTestJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        lblQuantity = new javax.swing.JLabel();
-        txtQuantity = new javax.swing.JTextField();
         btnMenu = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblItemPrice = new javax.swing.JTable();
@@ -140,6 +135,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         lblComment = new javax.swing.JLabel();
         txtComment = new javax.swing.JTextField();
         btnAddComment = new javax.swing.JButton();
+        valueLabel1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(151, 145, 151));
@@ -154,7 +150,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ORDER-ID", "ITEM-NAME", "PRICE", "RESTAURANT", "INSTRUCTIONS", "CUSTOMER", "STATUS", " QUANTITY"
+                "ORDER-ID", "VACCINE-NAME", "DOSES", "ORGANIZATION", "ALLERGIES", "PATIENT", "STATUS", "ALLERGIES"
             }
         ) {
             Class[] types = new Class [] {
@@ -177,9 +173,9 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 211, 72, 25));
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 210, 80, 25));
 
-        refreshTestJButton.setFont(new java.awt.Font("Tahoma", 3, 8)); // NOI18N
+        refreshTestJButton.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         refreshTestJButton.setText("REFRESH");
         refreshTestJButton.setBorder(new javax.swing.border.MatteBorder(null));
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -187,32 +183,25 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                 refreshTestJButtonActionPerformed(evt);
             }
         });
-        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 211, 84, 26));
+        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, 84, 26));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        enterpriseLabel.setText("CUSTOMER");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 27, 127, 30));
+        enterpriseLabel.setText("Welcome,");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 30));
 
+        valueLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 27, 158, 26));
-
-        lblQuantity.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        lblQuantity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuantity.setText("QUANTITY :");
-        add(lblQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 221, 77, -1));
-
-        txtQuantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 217, 114, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 360, 26));
 
         btnMenu.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnMenu.setText("MENU");
+        btnMenu.setText("SHOW AVAILABLE VACCINES");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
             }
         });
-        add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 30, -1, -1));
+        add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 190, -1));
 
         tblItemPrice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -222,23 +211,23 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "ITEM", "PRICE"
+                "VACCINES", "DOSES(REQUIRED)"
             }
         ));
         jScrollPane2.setViewportView(tblItemPrice);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 105, -1, 106));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, 106));
 
         boxItemList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(boxItemList, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 30, 223, -1));
+        add(boxItemList, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 223, -1));
 
         lblComment.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblComment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblComment.setText("COMMENT :");
-        add(lblComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 414, 67, -1));
+        lblComment.setText("ALLERGIES (if any):");
+        add(lblComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 414, 150, -1));
 
         txtComment.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 407, 189, -1));
+        add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 189, -1));
 
         btnAddComment.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnAddComment.setText("ADD COMMENT");
@@ -250,37 +239,41 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         });
         add(btnAddComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 445, -1, -1));
 
+        valueLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        valueLabel1.setText("Select Hospital:");
+        add(valueLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 26));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Divya Sharma\\Downloads\\Java Final-CVMS\\Java Final-CVMS\\src\\Assests\\coronavirus.jpg")); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         
       int selectedRow= tblItemPrice.getSelectedRow();
       if(selectedRow<0){
-      JOptionPane.showMessageDialog(null,"Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+      JOptionPane.showMessageDialog(null,"Please select a record to proceed", "Warning", JOptionPane.WARNING_MESSAGE);
       return;
       }
       
-      int quantity=Integer.parseInt(txtQuantity.getText());
+      //int quantity=Integer.parseInt(txtQuantity.getText());
       String restaurantName= boxItemList.getSelectedItem().toString();
       Restaurant restaurant = ecosystem.getRestaurantDirectory().getRestaurant(restaurantName);
       Customer customer=ecosystem.getCustomerDirectory().getCustomer(userAccount.getEmployee().getName());
       Menu menu=(Menu) tblItemPrice.getValueAt(selectedRow, 0);
-      String status="Order Placed";
+      String status="Awaiting Approval";
       
       Order order=ecosystem.getOrderDirectory().newOrder();
       order.setCustomer(customer);
       order.setOrderId(String.valueOf(count++));
-      order.setQuantity(quantity);
+      //order.setQuantity(quantity);
       order.setMenu(menu);
       order.setRestaurant(restaurant);
       order.setOrderStatus(status);
       order.setAssign(false);
       
       
-      JOptionPane.showMessageDialog(null,"Order Placed");
+      JOptionPane.showMessageDialog(null,"Vaccination request sent.");
       populateRequestTable();
         
     }//GEN-LAST:event_btnConfirmActionPerformed
@@ -296,7 +289,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         
         if(boxItemList.getSelectedIndex()==0){
         
-        JOptionPane.showMessageDialog(null, "Please select a restaurant");
+        JOptionPane.showMessageDialog(null, "Please select a hospital to view available vaccines.");
         return;
         }
         
@@ -312,7 +305,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         
         int selectedRow = workRequestJTable.getSelectedRow();
         if(selectedRow<0){
-        JOptionPane.showMessageDialog(null, "Please select a row from table first ","Warning",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Please select a record to proceed ","Warning",JOptionPane.WARNING_MESSAGE);
         return;
         }
         
@@ -331,12 +324,11 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblComment;
-    private javax.swing.JLabel lblQuantity;
     private javax.swing.JButton refreshTestJButton;
     private javax.swing.JTable tblItemPrice;
     private javax.swing.JTextField txtComment;
-    private javax.swing.JTextField txtQuantity;
     private javax.swing.JLabel valueLabel;
+    private javax.swing.JLabel valueLabel1;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -77,12 +77,12 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1680, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("My Work Area -Adminstrative Role");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel1.setText("ADMIN CONTROLS");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         userJButton.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        userJButton.setText("RESTAURANT");
+        userJButton.setText("ORGANIZATION INFORMATION");
         userJButton.setBorder(new javax.swing.border.MatteBorder(null));
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +92,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 190, 20));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        manageEmployeeJButton.setText("MENU");
+        manageEmployeeJButton.setText("VACCINES");
         manageEmployeeJButton.setBorder(new javax.swing.border.MatteBorder(null));
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +102,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 190, 20));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        manageOrganizationJButton.setText("ORDERS");
+        manageOrganizationJButton.setText("REQUESTS");
         manageOrganizationJButton.setBorder(new javax.swing.border.MatteBorder(null));
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,22 +111,23 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 190, 20));
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         enterpriseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        enterpriseLabel.setText("RESTAURANT");
+        enterpriseLabel.setText("HOSPITAL :");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 170, 30));
 
+        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 330, 30));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Divya Sharma\\Downloads\\Java Final-CVMS\\Java Final-CVMS\\src\\Assests\\coronavirus.jpg")); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 530));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        ManageRestaurantInfoJPanel manresinfopan=new ManageRestaurantInfoJPanel(userProcessContainer,useraccount,ecosystem,restaurantdirectory);
+        ManageOrganizationInfoJPanel manresinfopan=new ManageOrganizationInfoJPanel(userProcessContainer,useraccount,ecosystem,restaurantdirectory);
         userProcessContainer.add("manageMenuJPanel",manresinfopan);
         CardLayout crdlout=(CardLayout) userProcessContainer.getLayout();
         crdlout.next(userProcessContainer);
@@ -134,7 +135,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
 
-        ManageMenuJPanel manmenu=new ManageMenuJPanel(userProcessContainer,useraccount,ecosystem,restaurantdirectory,menudirectory);
+        ManageVaccinesJPanel manmenu=new ManageVaccinesJPanel(userProcessContainer,useraccount,ecosystem,restaurantdirectory,menudirectory);
         userProcessContainer.add("manageMenuPanel",manmenu);
         CardLayout crdlout=(CardLayout) userProcessContainer.getLayout();
         crdlout.next(userProcessContainer);
@@ -143,7 +144,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
 
-        ManageOrderJPanel manorder=new ManageOrderJPanel(userProcessContainer,useraccount,ecosystem,restaurantdirectory,menudirectory, orderdirectory);
+        ManageVaccineRequestJPanel manorder=new ManageVaccineRequestJPanel(userProcessContainer,useraccount,ecosystem,restaurantdirectory,menudirectory, orderdirectory);
         userProcessContainer.add("ManageOrderPanel",manorder);
         CardLayout crdlout=(CardLayout) userProcessContainer.getLayout();
         crdlout.next(userProcessContainer);

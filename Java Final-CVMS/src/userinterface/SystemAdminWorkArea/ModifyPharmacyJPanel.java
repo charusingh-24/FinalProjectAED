@@ -38,7 +38,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         txtAddress.setText(deliveryMan.getAddress());
         txtContact.setText(deliveryMan.getPhoneNumber());
         txtEmail.setText(deliveryMan.getEmail());
-        txtAge.setText(String.valueOf(deliveryMan.getAge()));
+      //  txtAge.setText(String.valueOf(deliveryMan.getAge()));
    }
 
     /**
@@ -50,16 +50,14 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        titleModifyDeliveryMan = new javax.swing.JLabel();
+        titlePharmacy = new javax.swing.JLabel();
         txtContact = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
-        btnCreate = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        lblAge = new javax.swing.JLabel();
-        txtAge = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         lblContact = new javax.swing.JLabel();
@@ -68,16 +66,17 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(151, 145, 151));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titleModifyDeliveryMan.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleModifyDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
-        titleModifyDeliveryMan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleModifyDeliveryMan.setText("MODIFY DELIVERYMAN");
-        add(titleModifyDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 799, -1));
+        titlePharmacy.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        titlePharmacy.setForeground(new java.awt.Color(255, 255, 255));
+        titlePharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titlePharmacy.setText("UPDATE PHARMACY DETAILS");
+        add(titlePharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 520, -1));
 
         txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 265, 165, -1));
+        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 265, 170, -1));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("BACK");
         btnBack.setBorder(new javax.swing.border.MatteBorder(null));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -87,57 +86,60 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 46, 51, 23));
 
-        btnCreate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnCreate.setText("MODIFY");
-        btnCreate.setBorder(new javax.swing.border.MatteBorder(null));
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(204, 204, 204));
+        btnAdd.setText("MODIFY");
+        btnAdd.setBorder(new javax.swing.border.MatteBorder(null));
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 325, 94, 25));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 325, 94, 25));
 
         lblName.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblName.setForeground(new java.awt.Color(204, 204, 204));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblName.setText("NAME");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 85, 121, -1));
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 110, -1));
 
         txtName.setEditable(false);
         txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 81, 165, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 170, -1));
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(204, 204, 204));
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail.setText("EMAIL");
-        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 123, 121, -1));
+        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 173, 110, 20));
 
         txtEmail.setEditable(false);
         txtEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 119, 165, -1));
-
-        lblAge.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        lblAge.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAge.setText("AGE");
-        add(lblAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 168, 121, -1));
-
-        txtAge.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 164, 165, -1));
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 170, -1));
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(204, 204, 204));
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddress.setText("ADDRESS");
         add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 219, 121, -1));
 
         txtAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 215, 165, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 215, 170, -1));
 
         lblContact.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblContact.setForeground(new java.awt.Color(204, 204, 204));
         lblContact.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContact.setText("CONTACT");
         add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 269, 121, -1));
 
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Divya Sharma\\Downloads\\Java Final-CVMS\\Java Final-CVMS\\src\\Assests\\coronavirus.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/resize-1618977884522140887Pharmacy.jpeg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,7 +154,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
        if(txtName.getText().isEmpty() || txtEmail.getText().isEmpty() ||
             txtContact.getText().isEmpty() || txtAddress.getText().isEmpty()) {
@@ -165,7 +167,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         String phoneNumber = txtContact.getText();
 
         if(phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
@@ -183,7 +185,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
 
         try {
 
-            age = Integer.parseInt(txtAge.getText());
+            //age = Integer.parseInt(txtAge.getText());
 
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Age must have integers only");
@@ -196,22 +198,34 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         deliveryMan.setPhoneNumber(phoneNumber);
         deliveryMan.setAddress(homeAddress);
 
-        JOptionPane.showMessageDialog(null, "DeliveryMan Profile Updated");
-    }//GEN-LAST:event_btnCreateActionPerformed
+        JOptionPane.showMessageDialog(null, "Pharmacy details updated successfully!!");
+        
+        clearAll();
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void clearAll(){
+    
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtEmail.setText("");
+        txtName.setText("");
+        
+    }
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
-    private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel titleModifyDeliveryMan;
+    private javax.swing.JLabel titlePharmacy;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtContact;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;

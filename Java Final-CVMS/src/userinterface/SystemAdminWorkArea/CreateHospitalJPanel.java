@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author Divya Sharma
+ * @author charusingh
  */
 public class CreateHospitalJPanel extends javax.swing.JPanel {
 
@@ -46,34 +47,30 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtContact = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         titleCreateRestaurant = new javax.swing.JLabel();
         lblRestaurant = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         txtRestaurant = new javax.swing.JTextField();
-        lblCity = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
+        lblManager = new javax.swing.JLabel();
+        txtManager = new javax.swing.JTextField();
         lblContact = new javax.swing.JLabel();
-        txtZipCode = new javax.swing.JTextField();
-        lblZipCode = new javax.swing.JLabel();
+        txtContact = new javax.swing.JTextField();
+        lblAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
-        lblAddress1 = new javax.swing.JLabel();
-        lblState = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        txtState = new javax.swing.JTextField();
-        txtUsername1 = new javax.swing.JTextField();
-        lblBackground = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(151, 145, 151));
         setForeground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1680, 700));
+        setPreferredSize(new java.awt.Dimension(1685, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 165, -1));
+        txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 306, 165, -1));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnBack.setText("BACK");
@@ -83,86 +80,72 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 49, 23));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 49, 23));
 
         titleCreateRestaurant.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         titleCreateRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCreateRestaurant.setText("ADD HOSPITAL");
-        add(titleCreateRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 440, -1));
+        add(titleCreateRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 660, -1));
 
         lblRestaurant.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRestaurant.setText("HOSPITAL NAME");
+        lblRestaurant.setText("NAME");
         add(lblRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 102, 121, -1));
 
         lblPassword.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("PASSWORD");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 121, -1));
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 361, 121, -1));
 
         txtRestaurant.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 95, 165, -1));
 
-        lblCity.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        lblCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCity.setText("CITY");
-        add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 121, -1));
+        lblManager.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblManager.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblManager.setText("ADMIN");
+        add(lblManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 213, 121, -1));
 
-        txtCity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 165, -1));
+        txtManager.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        add(txtManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 206, 165, -1));
 
         lblContact.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblContact.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblContact.setText("CONTACT");
-        add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 121, 20));
+        lblContact.setText("CONTACT NUMBER");
+        add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 256, 121, 20));
 
-        txtZipCode.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 165, -1));
+        txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 256, 165, -1));
 
-        lblZipCode.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        lblZipCode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblZipCode.setText("ZIP CODE");
-        add(lblZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 121, -1));
+        lblAddress.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddress.setText("ADDRESS");
+        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 155, 121, -1));
 
         txtAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 148, 165, -1));
 
         btnCreate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnCreate.setText("SUBMIT");
+        btnCreate.setText("ADD");
         btnCreate.setBorder(new javax.swing.border.MatteBorder(null));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 94, 29));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 94, 29));
 
         lblUserName.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserName.setText("USERNAME");
-        add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 121, -1));
+        add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 310, 121, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 160, -1));
 
-        lblAddress1.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        lblAddress1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAddress1.setText("STREET ADDRESS");
-        add(lblAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 155, 121, -1));
-
-        lblState.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        lblState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblState.setText("STATE");
-        add(lblState, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 256, 121, 20));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 165, -1));
-
-        txtState.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtState, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 256, 165, -1));
-
-        txtUsername1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 165, -1));
-
-        lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/hospital_bg2.jpeg"))); // NOI18N
-        lblBackground.setPreferredSize(new java.awt.Dimension(1685, 700));
-        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1685, 700));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital_bg2.png"))); // NOI18N
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel1.setAlignmentY(0.0F);
+        jLabel1.setIconTextGap(0);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 800));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -179,18 +162,18 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        if(txtRestaurant.getText().isEmpty() || txtAddress.getText().isEmpty() || txtZipCode.getText().isEmpty() || 
-                txtContact.getText().isEmpty() || txtPassword.getText().isEmpty() || txtCity.getText().isEmpty()) {
+        if(txtRestaurant.getText().isEmpty() || txtAddress.getText().isEmpty() || txtContact.getText().isEmpty() || 
+                txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty() || txtManager.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
         }
 
         String restaurantName = txtRestaurant.getText();
-        String managerName = txtCity.getText();
+        String managerName = txtManager.getText();
 
         boolean flag ;
 
-        flag = restaurantName.matches("^[a-zA-Z]+$");
+        flag = restaurantName.matches("^[a-zA-Z0-9 -]+$");
 
         if(flag == false) {
             JOptionPane.showMessageDialog(null, "First name cannot have integer values");
@@ -204,10 +187,10 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
             return;
         }
 
-        String phoneNumber = txtZipCode.getText();
+        String phoneNumber = txtContact.getText();
 
         if(phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
@@ -225,7 +208,7 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
 
 
         String address = txtAddress.getText();
-        String userName = txtContact.getText();
+        String userName = txtUsername.getText();
         String password = txtPassword.getText();
 
         for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
@@ -243,31 +226,38 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(restaurantName);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new AdminRole());
 
-        JOptionPane.showMessageDialog(null, "Restaurant Created");
+        JOptionPane.showMessageDialog(null, "Hospital Added");
 
+        clearAll();
     }//GEN-LAST:event_btnCreateActionPerformed
-
+    
+    private void clearAll(){
+    
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtManager.setText("");
+        txtPassword.setText("");
+        txtRestaurant.setText("");
+        txtUsername.setText("");
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
-    private javax.swing.JLabel lblAddress1;
-    private javax.swing.JLabel lblBackground;
-    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblContact;
+    private javax.swing.JLabel lblManager;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRestaurant;
-    private javax.swing.JLabel lblState;
     private javax.swing.JLabel lblUserName;
-    private javax.swing.JLabel lblZipCode;
     private javax.swing.JLabel titleCreateRestaurant;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContact;
+    private javax.swing.JTextField txtManager;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtRestaurant;
-    private javax.swing.JTextField txtState;
-    private javax.swing.JTextField txtUsername1;
-    private javax.swing.JTextField txtZipCode;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
