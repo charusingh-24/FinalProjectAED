@@ -76,7 +76,7 @@ public class ModifyHospitalJPanel extends javax.swing.JPanel {
 
         lblManager.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblManager.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblManager.setText("MANAGER");
+        lblManager.setText("ADMIN");
         add(lblManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 208, 121, -1));
 
         txtManager.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -84,27 +84,26 @@ public class ModifyHospitalJPanel extends javax.swing.JPanel {
 
         lblContact.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblContact.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblContact.setText("CONTACT");
-        add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 255, 121, -1));
+        lblContact.setText("CONTACT NUMBER");
+        add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 121, -1));
 
         txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 251, 165, -1));
 
         btnCreate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnCreate.setText("MODIFY");
+        btnCreate.setText("UPDATE");
         btnCreate.setBorder(new javax.swing.border.MatteBorder(null));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 310, 94, 23));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 94, 23));
 
         titleModifyRestaurant.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleModifyRestaurant.setForeground(new java.awt.Color(255, 255, 255));
         titleModifyRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleModifyRestaurant.setText("MODIFY RESTAURANT");
-        add(titleModifyRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 704, -1));
+        titleModifyRestaurant.setText("UPDATE HOSPITAL DETAILS");
+        add(titleModifyRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 380, -1));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnBack.setText("BACK");
@@ -118,13 +117,17 @@ public class ModifyHospitalJPanel extends javax.swing.JPanel {
 
         lblRestaurant.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRestaurant.setText("RESTAURANT");
-        add(lblRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 106, 121, -1));
+        lblRestaurant.setText("NAME");
+        add(lblRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 121, -1));
 
         txtRestaurant.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 102, 165, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital_bg2.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1680, 700));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,7 +144,7 @@ public class ModifyHospitalJPanel extends javax.swing.JPanel {
         String phoneNumber = txtContact.getText();
 
         if(phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
@@ -163,9 +166,19 @@ public class ModifyHospitalJPanel extends javax.swing.JPanel {
         restaurant.setPhoneNumber(phoneNumber);
         restaurant.setAddress(address);
 
-        JOptionPane.showMessageDialog(null, "Restaurant Updated");
+        JOptionPane.showMessageDialog(null, "Hospital details updated successfully!");
+        
+        clearAll();
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private void clearAll() {
+    
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtManager.setText("");
+        txtRestaurant.setText("");
+    }
+    
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);

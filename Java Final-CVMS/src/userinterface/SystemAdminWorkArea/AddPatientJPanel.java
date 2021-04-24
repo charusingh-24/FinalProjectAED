@@ -31,6 +31,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author Divya Sharma
+ * @author charusingh
  */
 public class AddPatientJPanel extends javax.swing.JPanel {
 
@@ -77,13 +78,13 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         txtAddress = new javax.swing.JTextField();
         txtContact = new javax.swing.JTextField();
         txtUserName = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboMonth = new javax.swing.JComboBox<String>();
-        jComboDate = new javax.swing.JComboBox<String>();
-        jComboYear = new javax.swing.JComboBox<String>();
+        jComboMonth = new javax.swing.JComboBox<>();
+        jComboDate = new javax.swing.JComboBox<>();
+        jComboYear = new javax.swing.JComboBox<>();
         calculatedAge = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        lblBackground = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(151, 145, 151));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,7 +113,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                 btnCreateCCActionPerformed(evt);
             }
         });
-        add(btnCreateCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 75, 25));
+        add(btnCreateCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, 75, 25));
 
         lblFname.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblFname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -132,27 +133,27 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lblAge.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAge.setText("AGE");
-        add(lblAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 233, 110, -1));
+        add(lblAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 110, -1));
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddress.setText("ADDRESS");
-        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 289, 110, -1));
+        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 110, -1));
 
         lblContact.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblContact.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContact.setText("CONTACT");
-        add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 345, 110, -1));
+        add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 110, -1));
 
         lnlUserName.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lnlUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lnlUserName.setText("USERNAME");
-        add(lnlUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 403, 110, -1));
+        add(lnlUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 110, -1));
 
         lblPassword.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("PASSWORD");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 458, 110, -1));
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, 110, -1));
 
         txtFname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 77, 109, -1));
@@ -169,56 +170,57 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 176, 109, -1));
 
         txtAge.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 229, 109, -1));
+        txtAge.setEnabled(false);
+        add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 109, -1));
 
         txtAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 285, 109, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 109, -1));
 
         txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 341, 109, -1));
+        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 109, -1));
 
         txtUserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 399, 109, -1));
-
-        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 454, 109, -1));
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 109, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DATE OF BIRTH");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, 110, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 110, -1));
 
         jComboMonth.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        jComboMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        jComboMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         jComboMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboMonthActionPerformed(evt);
             }
         });
-        add(jComboMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, -1, -1));
+        add(jComboMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, -1));
 
         jComboDate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        jComboDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboDateActionPerformed(evt);
             }
         });
-        add(jComboDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, -1, -1));
+        add(jComboDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, -1, -1));
 
         jComboYear.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        jComboYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1980", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000" }));
+        jComboYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1980", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000" }));
         jComboYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboYearActionPerformed(evt);
             }
         });
-        add(jComboYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 70, -1));
+        add(jComboYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, -1));
         add(calculatedAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 150, 20));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 110, -1));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 670));
+        lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        lblBackground.setMaximumSize(new java.awt.Dimension(1680, 700));
+        lblBackground.setPreferredSize(new java.awt.Dimension(1680, 700));
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -251,14 +253,14 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         boolean flag;
 
-        flag = firstName.matches("^[a-zA-Z]+$");
+        flag = firstName.matches("^[a-zA-Z '-]+$");
 
         if (flag == false) {
             JOptionPane.showMessageDialog(null, "First name cannot have integer values");
             return;
         }
 
-        flag = lastName.matches("^[a-zA-Z]+$");
+        flag = lastName.matches("^[a-zA-Z '-]+$");
 
         if (!flag) {
             JOptionPane.showMessageDialog(null, "Last name cannot have integer values");
@@ -269,23 +271,23 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         String email = txtEmail.getText();
 
-        flag = email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        flag = email.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+.[a-zA-Z]+$");
 
         if (!flag) {
-            JOptionPane.showMessageDialog(null, "Email Address must be in format of X@Y.Z");
+            JOptionPane.showMessageDialog(null, "Email must be in format of example@domain.com");
             return;
         }
 
         for (Customer customer : ecosystem.getCustomerDirectory().getCustomerDirectory()) {
             if (customer.getEmail().equals(email)) {
-                JOptionPane.showMessageDialog(null, "Email Address already exists");
+                JOptionPane.showMessageDialog(null, "Email address already exists");
             }
         }
 
         String phoneNumber = txtContact.getText();
 
         if (phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
@@ -304,6 +306,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         try {
 
             age = Integer.parseInt(txtAge.getText());
+            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Age must have integers only");
@@ -316,7 +319,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         for (UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
             if (account.getUsername().equals(userName)) {
-                JOptionPane.showMessageDialog(null, "Username Already exists");
+                JOptionPane.showMessageDialog(null, "Username already exists");
                 return;
             }
         }
@@ -327,10 +330,23 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount usserAccount = ecosystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new CustomerRole());
 
-        JOptionPane.showMessageDialog(null, "Customer Profile Created");
+        JOptionPane.showMessageDialog(null, "Patient added successfully!!");
 
+        clearAll();
 
     }//GEN-LAST:event_btnCreateCCActionPerformed
+    
+    private void clearAll() {
+        
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtEmail.setText("");
+        txtAge.setText("");
+        txtFname.setText("");
+        txtLname.setText("");
+        txtUserName.setText("");
+        txtPassword.setText("");
+    }
     
     private void calculateAge() {
         String dob = jComboDate.getSelectedItem() + "-" + jComboMonth.getSelectedItem() + "-" + jComboYear.getSelectedItem();
@@ -342,8 +358,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             ZonedDateTime zone = instant.atZone(ZoneId.systemDefault());
             LocalDate givenDate = zone.toLocalDate();
             Period period = Period.between(givenDate, LocalDate.now());
-            System.out.print(period.getYears() + " years " + period.getMonths() + " and " + period.getDays() + " days");
-            txtAge.setText(period.getYears() + " years " + period.getMonths() + " and " + period.getDays() + " days");
+            System.out.print(period.getYears());
+            txtAge.setText(String.valueOf(period.getYears()));
 
         } catch (ParseException ex) {
             Logger.getLogger(AddPatientJPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -371,10 +387,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboDate;
     private javax.swing.JComboBox<String> jComboMonth;
     private javax.swing.JComboBox<String> jComboYear;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFname;
@@ -388,7 +404,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFname;
     private javax.swing.JTextField txtLname;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

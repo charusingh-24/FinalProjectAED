@@ -66,10 +66,9 @@ public class ModifyOrganizationInfoJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleModifyRestaurant.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleModifyRestaurant.setForeground(new java.awt.Color(255, 255, 255));
         titleModifyRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleModifyRestaurant.setText("MODIFY RESTAURANT");
-        add(titleModifyRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 24, 754, -1));
+        titleModifyRestaurant.setText("UPDATE HOSPITAL DETAILS");
+        add(titleModifyRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 310, -1));
 
         btnBackMR.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnBackMR.setText("BACK");
@@ -83,7 +82,7 @@ public class ModifyOrganizationInfoJPanel extends javax.swing.JPanel {
 
         lblRestaurant.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRestaurant.setText("ORGANIZATION");
+        lblRestaurant.setText("HOSPITAL NAME");
         add(lblRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 154, 110, -1));
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
@@ -93,7 +92,7 @@ public class ModifyOrganizationInfoJPanel extends javax.swing.JPanel {
 
         lblManager.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblManager.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblManager.setText("ADMINISTRATOR");
+        lblManager.setText("ADMIN");
         add(lblManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 292, 100, -1));
 
         lblContact.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
@@ -114,17 +113,19 @@ public class ModifyOrganizationInfoJPanel extends javax.swing.JPanel {
         add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 358, 104, -1));
 
         btnModifyMR.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnModifyMR.setText("MODIFY");
+        btnModifyMR.setText("UPDATE");
         btnModifyMR.setBorder(new javax.swing.border.MatteBorder(null));
         btnModifyMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifyMRActionPerformed(evt);
             }
         });
-        add(btnModifyMR, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 413, 71, 23));
+        add(btnModifyMR, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 71, 23));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1680, 700));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -142,7 +143,7 @@ public class ModifyOrganizationInfoJPanel extends javax.swing.JPanel {
         String phoneNumber = txtContact.getText();
 
         if(phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
@@ -164,9 +165,20 @@ public class ModifyOrganizationInfoJPanel extends javax.swing.JPanel {
         restaurant.setPhoneNumber(phoneNumber);
         restaurant.setAddress(address);
 
-        JOptionPane.showMessageDialog(null, "Restaurant Updated");
+        JOptionPane.showMessageDialog(null, "Hospital details updated successfully!!");
+        
+        clearAll();
     }//GEN-LAST:event_btnModifyMRActionPerformed
 
+    private void clearAll() {
+    
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtManager.setText("");
+        txtRestaurant.setText("");
+        
+    }
+    
     private void btnBackMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMRActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);

@@ -8,9 +8,6 @@ package userinterface.SystemAdminWorkArea;
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
-import Business.Employee.EmployeeDirectory;
-import Business.Role.CustomerRole;
-import Business.UserAccount.UserAccountDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -19,22 +16,19 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Divya Sharma
+ * @author charusingh
  */
 public class ModifyPatientJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ModifyCustomerJPanel
      */
-    
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
     private Customer customer;
     private UserAccountDirectory userAccountdirectory;
     private CustomerDirectory customerdirectory;
-    
-    
-    
+
     public ModifyPatientJPanel(JPanel userProcessContainer, EcoSystem ecosystem, CustomerDirectory customerdirectory, Customer customer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -43,10 +37,10 @@ public class ModifyPatientJPanel extends javax.swing.JPanel {
         this.customerdirectory = ecosystem.getCustomerDirectory();
         txtName.setText(customer.getName());
         txtEmail.setText(customer.getEmail());
-    //    txtAge.setText(String.valueOf(customer.getAge()));
+        //    txtAge.setText(String.valueOf(customer.getAge()));
         txtAddress.setText(customer.getHomeAddress());
         txtContact.setText(customer.getPhoneNumber());
-        
+
     }
 
     /**
@@ -92,37 +86,37 @@ public class ModifyPatientJPanel extends javax.swing.JPanel {
         lblEmail.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail.setText("EMAIL");
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 188, 121, -1));
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 121, -1));
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddress.setText("ADDRESS");
-        jPanel1.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 120, 30));
+        jPanel1.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 120, 30));
 
         lblContact.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblContact.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContact.setText("CONTACT");
-        jPanel1.add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 273, 121, 20));
+        jPanel1.add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 121, 20));
 
         txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 165, -1));
+        jPanel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 165, -1));
 
         txtName.setEditable(false);
         txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 146, 165, -1));
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 165, -1));
 
         txtEmail.setEditable(false);
         txtEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 184, 165, -1));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 165, -1));
 
         txtAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 165, -1));
+        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 165, -1));
 
         titleModifyCustomer.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         titleModifyCustomer.setForeground(new java.awt.Color(255, 255, 255));
         titleModifyCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleModifyCustomer.setText("MODIFY");
-        jPanel1.add(titleModifyCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 876, -1));
+        titleModifyCustomer.setText("UPDATE PATIENT DETAILS");
+        jPanel1.add(titleModifyCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 360, -1));
 
         btnCreate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnCreate.setText("MODIFY");
@@ -132,15 +126,17 @@ public class ModifyPatientJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 390, 94, 27));
+        jPanel1.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 94, 27));
 
         lblName.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblName.setText("NAME");
-        jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 150, 121, -1));
+        jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 121, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1680, 700));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -159,52 +155,49 @@ public class ModifyPatientJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        if(txtName.getText().isEmpty() || txtEmail.getText().isEmpty() ||
-            txtContact.getText().isEmpty() || txtAddress.getText().isEmpty()) {
+        if (txtName.getText().isEmpty() || txtEmail.getText().isEmpty()
+                || txtContact.getText().isEmpty() || txtAddress.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
         }
 
-        boolean flag ;
+        boolean flag;
 
         String phoneNumber = txtContact.getText();
 
-        if(phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+        if (phoneNumber.length() != 10) {
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
-        if(!flag) {
+        if (!flag) {
             JOptionPane.showMessageDialog(null, "Phone Number must have digits only");
             return;
         }
-        for(Customer customer : customerdirectory.getCustomerDirectory()) {
-            if(customer.getPhoneNumber().equals(phoneNumber) && this.customer != customer) {
+        for (Customer customer : customerdirectory.getCustomerDirectory()) {
+            if (customer.getPhoneNumber().equals(phoneNumber) && this.customer != customer) {
                 JOptionPane.showMessageDialog(null, "Phone Number already exists");
             }
         }
 
-        int age = 0;
-
-        try {
-
-//            age = Integer.parseInt(txtAge.getText());
-
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Age must have integers only");
-            return;
-        }
-
+       
         String homeAddress = txtAddress.getText();
 
-        customer.setAge(age);
         customer.setPhoneNumber(phoneNumber);
         customer.setHomeAddress(homeAddress);
 
-        JOptionPane.showMessageDialog(null, "Customer Profile Updated");
+        JOptionPane.showMessageDialog(null, "Patient Profile Updated");
 
+        clearAll();
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private void clearAll() {
+
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtEmail.setText("");
+        txtName.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

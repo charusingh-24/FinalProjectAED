@@ -17,21 +17,19 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Divya Sharma
+ * @author charusingh
  */
 public class ManageOrganizationInfoJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageRestaurantInfoJPanel
      */
-    
     private JPanel userProcessContainer;
     private UserAccount useraccount;
     private EcoSystem ecosystem;
     private RestaurantDirectory restaurantdirectory;
     private Restaurant restaurant;
-    
-    
-    
+
     public ManageOrganizationInfoJPanel(JPanel userProcessContainer, UserAccount useraccount, EcoSystem ecosystem, RestaurantDirectory restaurantdirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -39,39 +37,40 @@ public class ManageOrganizationInfoJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.restaurantdirectory = ecosystem.getRestaurantDirectory();
         System.out.println(restaurantdirectory.getRestaurantDirectory().size() + "   ...... ");
-        for(Restaurant res : this.restaurantdirectory.getRestaurantDirectory()) {
+        for (Restaurant res : this.restaurantdirectory.getRestaurantDirectory()) {
             System.out.println(res.getRestaurantName() + " " + useraccount.getEmployee().getName());
-            if(useraccount.getEmployee().getName().equals(res.getRestaurantName())) {
+            if (useraccount.getEmployee().getName().equals(res.getRestaurantName())) {
                 this.restaurant = res;
                 break;
             }
         }
         populateTable();
     }
-    
-     public void populateTable() {
+
+    public void populateTable() {
         DefaultTableModel deftabmdl = (DefaultTableModel) tblRestaurant.getModel();
         deftabmdl.setRowCount(0);
-        Object [] row = new Object[4];
+        Object[] row = new Object[4];
         row[0] = restaurant;
         row[1] = restaurant.getAddress();
         row[2] = restaurant.getManagerName();
         row[3] = restaurant.getPhoneNumber();
-        
+
         deftabmdl.addRow(row);
     }
-     
-     public void refreshTable() {
+
+    public void refreshTable() {
         DefaultTableModel deftabmdl = (DefaultTableModel) tblRestaurant.getModel();
         deftabmdl.setRowCount(0);
-        
-        Object [] row = new Object[4];
+
+        Object[] row = new Object[4];
         row[0] = restaurant;
         row[1] = restaurant.getAddress();
         row[2] = restaurant.getManagerName();
         row[3] = restaurant.getPhoneNumber();
         deftabmdl.addRow(row);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -93,9 +92,8 @@ public class ManageOrganizationInfoJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleManageRes.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleManageRes.setForeground(new java.awt.Color(255, 255, 255));
         titleManageRes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageRes.setText("MANAGE ORGANIZATION");
+        titleManageRes.setText("UPDATE HOSPITAL DETAILS");
         add(titleManageRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 34, 737, 33));
 
         tblRestaurant.setBorder(new javax.swing.border.MatteBorder(null));
@@ -107,7 +105,7 @@ public class ManageOrganizationInfoJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "ORGANIZATION ", "ADDRESS", "ADMINISTRATOR", "CONTACT"
+                "HOSPITAL NAME", "ADDRESS", "ADMIN", "CONTACT NUMBER"
             }
         ));
         jScrollPane1.setViewportView(tblRestaurant);
@@ -125,7 +123,7 @@ public class ManageOrganizationInfoJPanel extends javax.swing.JPanel {
         add(btnBackMR, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 85, 69, 29));
 
         btnModifyMR.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnModifyMR.setText("MODIFY");
+        btnModifyMR.setText("UPDATE");
         btnModifyMR.setBorder(new javax.swing.border.MatteBorder(null));
         btnModifyMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,31 +134,33 @@ public class ManageOrganizationInfoJPanel extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1680, 700));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifyMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyMRActionPerformed
         // TODO add your handling code here:
-        
+
         int selectedRow = tblRestaurant.getSelectedRow();
-        if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow,0);
+        Restaurant restaurant = (Restaurant) tblRestaurant.getValueAt(selectedRow, 0);
         ModifyOrganizationInfoJPanel modifyManager = new ModifyOrganizationInfoJPanel(userProcessContainer, ecosystem, restaurantdirectory, restaurant);
-        userProcessContainer.add("ModifyRestaurantInfoJPanel",modifyManager);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add("ModifyRestaurantInfoJPanel", modifyManager);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnModifyMRActionPerformed
 
     private void btnBackMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMRActionPerformed
-                                              
+
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-                
+
     }//GEN-LAST:event_btnBackMRActionPerformed
 
 

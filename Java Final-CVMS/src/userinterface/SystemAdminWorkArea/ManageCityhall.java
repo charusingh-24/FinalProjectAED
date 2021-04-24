@@ -16,8 +16,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -27,10 +25,11 @@ import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
- * @author LUCKY
+ * @author charusingh
+ * @author Divya Sharma
  */
-
 public class ManageCityhall extends javax.swing.JPanel {
+
     Employee employeeObject;
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
@@ -39,23 +38,62 @@ public class ManageCityhall extends javax.swing.JPanel {
     /**
      * Creates new form ManageCityhall
      */
-    
+//    private void visualizeHospitalization(java.awt.event.ActionEvent evt) throws IOException {
+//        Map<String, Integer> map = new HashMap<>();
+//        BufferedReader br;
+//        try {
+//            br = new BufferedReader(new FileReader("src/Assests/patientRecord.csv"));
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                String[] cols = line.split(",");
+//                System.out.println(cols[7]);
+////                if (cols[7].equals(employeeObject.getEmployeeDepartment())) {
+//                    if (map.containsKey(cols[8])) {
+//                        map.put(cols[8], map.get(cols[8]) + 1);
+//                    } else {
+//                        map.put(cols[8], 1);
+//                    }
+//                }
+////            }
+//            System.out.println(map);
+//        } catch (FileNotFoundException ex) {
+////            Logger.getLogger(DoctorsView.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        // TODO add your handling code here:
+//        DefaultPieDataset pieDataSet = new DefaultPieDataset();
+//        for (String name : map.keySet()) {
+//            pieDataSet.setValue(name, map.get(name));
+//        }
+//        JFreeChart chart = ChartFactory.createPieChart("Pie Chart for Hospital Pateint Status", pieDataSet, true, true, true);
+//
+//        PiePlot p = (PiePlot) chart.getPlot();
+//        p.setSectionPaint("Treatment Completed", Color.BLUE);
+//        p.setSectionPaint("Admitted", Color.MAGENTA);
+//        p.setSectionPaint("Doctor Assigned", Color.green);
+//        ChartPanel chartPanel = new ChartPanel(chart, false);
+//        chartPane.add(chartPanel);
+//        chartPanel.setSize(500, 500);
+//        chartPanel.setVisible(true);
+//
+//    }
     private void visualizeHospitalization(java.awt.event.ActionEvent evt) throws IOException {
         Map<String, Integer> map = new HashMap<>();
         BufferedReader br;
         try {
-            br = new BufferedReader(new FileReader("src/Assests/patientRecord.csv"));
+            br = new BufferedReader(new FileReader("src/Assests/orderRecords.csv"));
             String line;
-            while ((line = br.readLine()) != null) {
-                String[] cols = line.split(",");
-                System.out.println(cols[7]);
+            String[] cols = br.readLine().split(",");
+            for (int i = 0; i < cols.length; i++) {
+
+                System.out.println(cols[i]);
 //                if (cols[7].equals(employeeObject.getEmployeeDepartment())) {
-                    if (map.containsKey(cols[8])) {
-                        map.put(cols[8], map.get(cols[8]) + 1);
-                    } else {
-                        map.put(cols[8], 1);
-                    }
+                if (map.containsKey(cols[i])) {
+                    map.put(cols[i], map.get(cols[i]) + 1);
+                } else {
+                    map.put(cols[i], 1);
                 }
+            }
 //            }
             System.out.println(map);
         } catch (FileNotFoundException ex) {
@@ -67,7 +105,7 @@ public class ManageCityhall extends javax.swing.JPanel {
         for (String name : map.keySet()) {
             pieDataSet.setValue(name, map.get(name));
         }
-        JFreeChart chart = ChartFactory.createPieChart("Pie Chart for Hospital Pateint Status", pieDataSet, true, true, true);
+        JFreeChart chart = ChartFactory.createPieChart("Pie Chart for Hospital Patient Status", pieDataSet, true, true, true);
 
         PiePlot p = (PiePlot) chart.getPlot();
         p.setSectionPaint("Treatment Completed", Color.BLUE);
@@ -79,7 +117,7 @@ public class ManageCityhall extends javax.swing.JPanel {
         chartPanel.setVisible(true);
 
     }
-    
+
     public ManageCityhall(JPanel userProcessContainer, EcoSystem ecosystem, DeliveryManDirectory deliveryMandirectory) throws IOException {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -100,22 +138,23 @@ public class ManageCityhall extends javax.swing.JPanel {
         button1 = new java.awt.Button();
         chartPane = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(70, 107, 139));
 
-        button1.setLabel("Back");
+        button1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        button1.setLabel("BACK");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button1ActionPerformed(evt);
             }
         });
 
-        chartPane.setBackground(new java.awt.Color(0, 153, 153));
+        chartPane.setBackground(new java.awt.Color(70, 107, 139));
 
         javax.swing.GroupLayout chartPaneLayout = new javax.swing.GroupLayout(chartPane);
         chartPane.setLayout(chartPaneLayout);
         chartPaneLayout.setHorizontalGroup(
             chartPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 545, Short.MAX_VALUE)
         );
         chartPaneLayout.setVerticalGroup(
             chartPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,4 +194,5 @@ public class ManageCityhall extends javax.swing.JPanel {
     private java.awt.Button button1;
     private javax.swing.JPanel chartPane;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -81,13 +81,14 @@ public class ManageHospitalJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(151, 145, 151));
+        setMinimumSize(new java.awt.Dimension(1680, 700));
+        setPreferredSize(new java.awt.Dimension(1680, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleManageRestaurant.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleManageRestaurant.setForeground(new java.awt.Color(255, 255, 255));
         titleManageRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageRestaurant.setText("MANAGE RESTAURANT");
-        add(titleManageRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 21, 818, 35));
+        titleManageRestaurant.setText("MANAGE HOSPITAL DETAILS");
+        add(titleManageRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 550, 20));
 
         tblRestaurant.setBorder(new javax.swing.border.MatteBorder(null));
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,7 +99,7 @@ public class ManageHospitalJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Restaurant Name ", "Address", "Manager Name", "Mobile Number"
+                "Hospital Name", "Address", "Contact Name", "Contact Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -125,7 +126,7 @@ public class ManageHospitalJPanel extends javax.swing.JPanel {
         add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 286, 165, 24));
 
         btnCreate.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btnCreate.setText("CREATE");
+        btnCreate.setText("ADD");
         btnCreate.setBorder(new javax.swing.border.MatteBorder(null));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +136,7 @@ public class ManageHospitalJPanel extends javax.swing.JPanel {
         add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 286, 165, 23));
 
         btnDelete.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnDelete.setText("Delete Restaurant");
+        btnDelete.setText("REMOVE");
         btnDelete.setActionCommand("DELETE");
         btnDelete.setBorder(new javax.swing.border.MatteBorder(null));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -156,14 +157,16 @@ public class ManageHospitalJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, 63, 23));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital_bg2.png"))); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(1680, 700));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
        int selectedRow = tblRestaurant.getSelectedRow();
         if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow,0);
@@ -185,7 +188,7 @@ public class ManageHospitalJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblRestaurant.getSelectedRow();
         if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 

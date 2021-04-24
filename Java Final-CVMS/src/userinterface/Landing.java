@@ -51,7 +51,7 @@ public class Landing extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(30, 54, 113));
         jButton1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("COVID-SHIELD");
+        jButton1.setText("COV-AID");
         jButton1.setBorder(new javax.swing.border.MatteBorder(null));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

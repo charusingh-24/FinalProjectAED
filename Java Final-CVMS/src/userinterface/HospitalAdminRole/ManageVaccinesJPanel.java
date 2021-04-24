@@ -92,7 +92,7 @@ public class ManageVaccinesJPanel extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "VACCINE NAME", "DOSES(REQUIRED)"
+                "VACCINE PROVIDER", "DOSES REQUIRED"
             }
         ));
         jScrollPane1.setViewportView(tblManMenuIP);
@@ -122,12 +122,12 @@ public class ManageVaccinesJPanel extends javax.swing.JPanel {
 
         lblIN.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblIN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIN.setText("VACCINE NAME");
+        lblIN.setText("VACCINE PROVIDER");
         add(lblIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 364, 109, 20));
 
         lblPrice.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrice.setText("DOSE()REQUIRED");
+        lblPrice.setText("DOSES REQUIRED");
         add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 414, 109, 20));
 
         txtIN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -143,10 +143,11 @@ public class ManageVaccinesJPanel extends javax.swing.JPanel {
                 btnAddItemActionPerformed(evt);
             }
         });
-        add(btnAddItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(538, 452, 74, -1));
+        add(btnAddItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 74, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -164,7 +165,7 @@ public class ManageVaccinesJPanel extends javax.swing.JPanel {
             price = Double.parseDouble(txtPrice.getText());
             
         } catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Price must be float or Integer value");
+            JOptionPane.showMessageDialog(null, "Doses required should be a numeric value.");
             return;
         }
         
@@ -172,8 +173,16 @@ public class ManageVaccinesJPanel extends javax.swing.JPanel {
         
         menudirectory.newItem(itemName, price, res);
         populateTable();
+        
+        clearAll();
     }//GEN-LAST:event_btnAddItemActionPerformed
 
+    private void clearAll() {
+        
+        txtIN.setText("");
+        txtPrice.setText("");
+        
+    }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);

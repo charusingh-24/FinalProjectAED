@@ -44,10 +44,10 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
             Object [] row = new Object[6];
             row[0] = cust;
             row[1] = cust.getName();
-            row[2] = cust.getEmail();
+            row[2] = cust.getAge();
             row[3] = cust.getHomeAddress();
-            row[4] = cust.getPhoneNumber();
-            row[5] = cust.getAge();
+            row[4] = cust.getEmail();
+            row[5] = cust.getPhoneNumber();
             deftabmdl.addRow(row);
         }
     }
@@ -56,13 +56,15 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         DefaultTableModel deftabmdl = (DefaultTableModel) tblCustomer.getModel();
         deftabmdl.setRowCount(0);
         for(Customer customer : ecosystem.getCustomerDirectory().getCustomerDirectory()){
-            Object [] row = new Object[6];
+            Object [] row = new Object[7];
             row[0] = customer;
             row[1] = customer.getName();
-            row[2] = customer.getEmail();
+            row[2] = customer.getAge();
             row[3] = customer.getHomeAddress();
-            row[4] = customer.getPhoneNumber();
-            row[5] = customer.getAge();
+            row[4] = customer.getEmail();
+            row[5] = customer.getPhoneNumber();
+            row[6] = customer.getUserName();
+          
             deftabmdl.addRow(row);
         }
     }
@@ -96,7 +98,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                 btnModifyActionPerformed(evt);
             }
         });
-        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 165, 25));
+        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 165, 25));
 
         btnCreate.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnCreate.setText("ADD");
@@ -106,7 +108,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 305, 155, 25));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 155, 25));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnBack.setText("BACK");
@@ -119,25 +121,21 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 73, 23));
 
         titleManageCustomer.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleManageCustomer.setForeground(new java.awt.Color(255, 255, 255));
         titleManageCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageCustomer.setText("MANAGE PATIENT");
-        add(titleManageCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 780, -1));
+        titleManageCustomer.setText("MANAGE PATIENT DETAILS");
+        add(titleManageCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 540, 20));
 
         tblCustomer.setBorder(new javax.swing.border.MatteBorder(null));
         tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Username", "Name ", "Email Address", "Address", "Mobile Number", "Age", "DATE OF BIRTH"
+                "Username", "Name", "Age", "Address", "Email", "Phone Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -160,6 +158,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 

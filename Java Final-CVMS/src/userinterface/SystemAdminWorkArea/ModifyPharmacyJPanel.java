@@ -69,13 +69,14 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         titlePharmacy.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         titlePharmacy.setForeground(new java.awt.Color(255, 255, 255));
         titlePharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titlePharmacy.setText("MODIFY PHARMACY");
-        add(titlePharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 910, -1));
+        titlePharmacy.setText("UPDATE PHARMACY DETAILS");
+        add(titlePharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 520, -1));
 
         txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 265, 170, -1));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("BACK");
         btnBack.setBorder(new javax.swing.border.MatteBorder(null));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +87,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 46, 51, 23));
 
         btnAdd.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(204, 204, 204));
         btnAdd.setText("MODIFY");
         btnAdd.setBorder(new javax.swing.border.MatteBorder(null));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +98,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 325, 94, 25));
 
         lblName.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblName.setForeground(new java.awt.Color(204, 204, 204));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblName.setText("NAME");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 110, -1));
@@ -105,6 +108,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 170, -1));
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(204, 204, 204));
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail.setText("EMAIL");
         add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 173, 110, 20));
@@ -119,6 +123,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 170, -1));
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(204, 204, 204));
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddress.setText("ADDRESS");
         add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 219, 121, -1));
@@ -127,10 +132,12 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 215, 170, -1));
 
         lblContact.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblContact.setForeground(new java.awt.Color(204, 204, 204));
         lblContact.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContact.setText("CONTACT");
         add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 269, 121, -1));
 
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/resize-1618977884522140887Pharmacy.jpeg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
@@ -160,7 +167,7 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         String phoneNumber = txtContact.getText();
 
         if(phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
@@ -191,9 +198,19 @@ public class ModifyPharmacyJPanel extends javax.swing.JPanel {
         deliveryMan.setPhoneNumber(phoneNumber);
         deliveryMan.setAddress(homeAddress);
 
-        JOptionPane.showMessageDialog(null, "Pharmacy Updated");
+        JOptionPane.showMessageDialog(null, "Pharmacy details updated successfully!!");
+        
+        clearAll();
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void clearAll(){
+    
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtEmail.setText("");
+        txtName.setText("");
+        
+    }
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
