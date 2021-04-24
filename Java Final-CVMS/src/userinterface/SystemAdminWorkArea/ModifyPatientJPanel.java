@@ -135,6 +135,8 @@ public class ModifyPatientJPanel extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1680, 700));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -178,18 +180,9 @@ public class ModifyPatientJPanel extends javax.swing.JPanel {
             }
         }
 
-        int age = 0;
-
-        try {
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Age must have integers only");
-            return;
-        }
-
+       
         String homeAddress = txtAddress.getText();
 
-        customer.setAge(age);
         customer.setPhoneNumber(phoneNumber);
         customer.setHomeAddress(homeAddress);
 

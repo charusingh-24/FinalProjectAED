@@ -66,7 +66,7 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(151, 145, 151));
         setForeground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1685, 700));
+        setPreferredSize(new java.awt.Dimension(1680, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -145,7 +145,8 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel1.setAlignmentY(0.0F);
         jLabel1.setIconTextGap(0);
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 800));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1680, 700));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -180,10 +181,10 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
             return;
         }
 
-        flag = managerName.matches("^[a-zA-Z]+$");
+        flag = managerName.matches("^[a-zA-Z -']+$");
 
         if(!flag) {
-            JOptionPane.showMessageDialog(null, "Last name cannot have integer values");
+            JOptionPane.showMessageDialog(null, "Manager's name is invalid");
             return;
         }
 
@@ -226,7 +227,7 @@ public class CreateHospitalJPanel extends javax.swing.JPanel {
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(restaurantName);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new AdminRole());
 
-        JOptionPane.showMessageDialog(null, "Hospital Added");
+        JOptionPane.showMessageDialog(null, "Hospital Added Successfully!!");
 
         clearAll();
     }//GEN-LAST:event_btnCreateActionPerformed

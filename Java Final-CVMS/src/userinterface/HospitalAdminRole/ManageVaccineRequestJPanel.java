@@ -10,6 +10,7 @@ import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Order.Order;
+import Business.Order.OrderStatus;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
@@ -21,13 +22,13 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Divya Sharma
+ * @author charusingh
  */
 public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageOrderJPanel
      */
-    
     private JPanel userProcessContainer;
     private UserAccount useraccount;
     private EcoSystem ecosystem;
@@ -35,52 +36,48 @@ public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
     private MenuDirectory menudirectory;
     private OrderDirectory orderdirectory;
     private DeliveryManDirectory deliverymandirectory;
-    
-    
-    
-    public ManageVaccineRequestJPanel(JPanel userProcessContainer,UserAccount useraccount, EcoSystem ecosystem, RestaurantDirectory restaurantdirectory, MenuDirectory menudirectory, OrderDirectory orderdirectory) {
+
+    public ManageVaccineRequestJPanel(JPanel userProcessContainer, UserAccount useraccount, EcoSystem ecosystem, RestaurantDirectory restaurantdirectory, MenuDirectory menudirectory, OrderDirectory orderdirectory) {
         initComponents();
-        
+
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.useraccount = useraccount;
         this.restaurantdirectory = ecosystem.getRestaurantDirectory();
         this.menudirectory = ecosystem.getMenuDirectory();
         this.orderdirectory = ecosystem.getOrderDirectory();
-        
         this.deliverymandirectory = ecosystem.getDeliveryManDirectory();
+        
         populateTable();
         populateRestaurantCombo();
     }
-    
+
     public void populateTable() {
         DefaultTableModel deftabmdl = (DefaultTableModel) tblOrder.getModel();
         deftabmdl.setRowCount(0);
-        
-        
-        
-        
-        for(Order order : ecosystem.getOrderDirectory().getOrderDirectory()) {
+
+        for (Order order : ecosystem.getOrderDirectory().getOrderDirectory()) 
+        {
             System.out.println(" Rest  " + useraccount.getEmployee().getName() + "  " + order.getRestaurant().getRestaurantName());
-            if(useraccount.getEmployee().getName().equals(order.getRestaurant().getRestaurantName())) {
-                Object [] row = new Object[5];
+            if (useraccount.getEmployee().getName().equals(order.getRestaurant().getRestaurantName())) {
+                Object[] row = new Object[5];
                 row[0] = order;
                 row[1] = order.getMenu().getItemName();
-                row[2] = order.getQuantity();
-                row[3] = order.getQuantity() * order.getMenu().getPrice();
-                row[4] = order.getOrderStatus();
+                row[2] = order.getMenu().getPrice();
+                row[3] = order.getOrderStatus();
                 deftabmdl.addRow(row);
             }
         }
     }
-    
-    public final void populateRestaurantCombo(){
-    
-     comboDelivery.removeAll();
+
+    public final void populateRestaurantCombo() {
+
+        comboDelivery.removeAll();
         comboDelivery.addItem(" ");
         for (DeliveryMan deliveryman : deliverymandirectory.getDeliveryManDirectory()) {
             comboDelivery.addItem(deliveryman.getName());
-        }}
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,21 +104,21 @@ public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleManageOrder.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleManageOrder.setForeground(new java.awt.Color(255, 255, 255));
+        titleManageOrder.setForeground(new java.awt.Color(51, 51, 51));
         titleManageOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageOrder.setText("VACCINE REQUEST");
-        add(titleManageOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 719, -1));
+        titleManageOrder.setText("VACCINE REQUESTS");
+        add(titleManageOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 370, -1));
 
         tblOrder.setBorder(new javax.swing.border.MatteBorder(null));
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ORDER ID", "VACCINE NAME", "QUANTITY", "DOSE(required)", " STATUS"
+                "PATIENT ID", "VACCINE NAME", "DOSES REQUIRED", " STATUS"
             }
         ));
         jScrollPane1.setViewportView(tblOrder);
@@ -136,7 +133,7 @@ public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
                 btnBackMOActionPerformed(evt);
             }
         });
-        add(btnBackMO, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 87, 71, 22));
+        add(btnBackMO, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 71, 22));
 
         btnAcceptMO.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnAcceptMO.setText("CONFIRM");
@@ -146,7 +143,7 @@ public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
                 btnAcceptMOActionPerformed(evt);
             }
         });
-        add(btnAcceptMO, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 288, 83, 24));
+        add(btnAcceptMO, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 83, 24));
 
         btnCompleteMO.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnCompleteMO.setText("PROCESS REQUEST");
@@ -156,14 +153,14 @@ public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
                 btnCompleteMOActionPerformed(evt);
             }
         });
-        add(btnCompleteMO, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 288, 160, 24));
+        add(btnCompleteMO, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 160, 24));
 
-        add(comboDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 87, 143, -1));
+        add(comboDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 143, -1));
 
         lblAssignDelivery.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblAssignDelivery.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAssignDelivery.setText("Doctor");
-        add(lblAssignDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 60, -1));
+        lblAssignDelivery.setText("Assign request to available Pharmacy :");
+        add(lblAssignDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 290, 30));
 
         btnAssignDelivery.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnAssignDelivery.setText("ASSIGN");
@@ -173,64 +170,63 @@ public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
                 btnAssignDeliveryActionPerformed(evt);
             }
         });
-        add(btnAssignDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 87, 80, 22));
+        add(btnAssignDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 80, 22));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/Hospital.jpeg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 500));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1680, 700));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 20, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCompleteMOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteMOActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblOrder.getSelectedRow();
-        if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(null,"Please select a row to proceed.", "Warning", JOptionPane.WARNING_MESSAGE);
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row to proceed.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        Order order = (Order)tblOrder.getValueAt(selectedRow, 0);
-        if(order.getOrderStatus().equals("Awaiting Approval")) {
-            order.setOrderStatus("Vaccination Approved");
+
+        Order order = (Order) tblOrder.getValueAt(selectedRow, 0);
+        if (order.getOrderStatus().equals(OrderStatus.Awaiting_Approval.getValue())) {
+            order.setOrderStatus(OrderStatus.Vaccine_Approved.getValue());
+            JOptionPane.showMessageDialog(null, "Request approved. Now assign to pharmacy.");
             order.setAssign(true);
-        }
-        
-        else if(order.getOrderStatus().equals("Vaccination Requested")) {
-            JOptionPane.showMessageDialog(null, "Vaccination needs to be approved.");
+        } else if (order.getOrderStatus().equals(OrderStatus.Vaccine_Requested.getValue())) {
+            JOptionPane.showMessageDialog(null, "Accept request in order to approve.");
             return;
-        }
-        
-        else {
+        } else {
             JOptionPane.showMessageDialog(null, "Request already approved. ");
             return;
         }
-        
+
         populateTable();
     }//GEN-LAST:event_btnCompleteMOActionPerformed
 
     private void btnAcceptMOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptMOActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblOrder.getSelectedRow();
-        if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(null,"Please select a record to proceed.", "Warning", JOptionPane.WARNING_MESSAGE);
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a record to proceed.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        Order order = (Order)tblOrder.getValueAt(selectedRow, 0);
-        if(order.getOrderStatus().equals("Vaccination Requested")) {
-            order.setOrderStatus("Vaccination Approved");
-        }
-        
-        else {
-            JOptionPane.showMessageDialog(null, "Request already approved.");
+
+        Order order = (Order) tblOrder.getValueAt(selectedRow, 0);
+
+        if (order.getOrderStatus().equals(OrderStatus.Vaccine_Requested.getValue())) {
+            order.setOrderStatus(OrderStatus.Awaiting_Approval.getValue());
+            JOptionPane.showMessageDialog(null, "Vaccine request accepted. Arrange approvals to proceed further.");
+        } 
+        else if (order.getOrderStatus().equals(OrderStatus.Awaiting_Approval.getValue())){
+            JOptionPane.showMessageDialog(null, "Request already accepted.");
             return;
         }
-        
+
         populateTable();
     }//GEN-LAST:event_btnAcceptMOActionPerformed
 
     private void btnBackMOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMOActionPerformed
         // TODO add your handling code here:
-        
+
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
@@ -238,27 +234,27 @@ public class ManageVaccineRequestJPanel extends javax.swing.JPanel {
 
     private void btnAssignDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryActionPerformed
         // TODO add your handling code here:int selectedRow = tblOrder.getSelectedRow();
-int selectedRow = tblOrder.getSelectedRow();
+        int selectedRow = tblOrder.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row");
             return;
         }
         Order order = (Order) tblOrder.getValueAt(selectedRow, 0);
         if (comboDelivery.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Please select you preferred doctor/PCP.");
+            JOptionPane.showMessageDialog(null, "Please select you preferred pharmacy.");
             return;
         }
-        if (order.getOrderStatus().equals("Request is in Progress")) {
+        if (order.getOrderStatus().equals(OrderStatus.Vaccine_Approved.getValue())) {
             for (DeliveryMan deliveryman : deliverymandirectory.getDeliveryManDirectory()) {
                 if (deliveryman.getName().equals(comboDelivery.getSelectedItem())) {
                     order.setDeliveryMan(deliveryman.getEmail());
                 }
             }
-            order.setOrderStatus("Vaccination Approved");
+            order.setOrderStatus(OrderStatus.Vaccine_Assigned.getValue());
             JOptionPane.showMessageDialog(null, "Request assigned successfully");
             populateTable();
         } else {
-            JOptionPane.showMessageDialog(null, "Request already approved.");
+            JOptionPane.showMessageDialog(null, "Request needs to be Accepted and Approved before assignment.");
             return;
         }
     }//GEN-LAST:event_btnAssignDeliveryActionPerformed

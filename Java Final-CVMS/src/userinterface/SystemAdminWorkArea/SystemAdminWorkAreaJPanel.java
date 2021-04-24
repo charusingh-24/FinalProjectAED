@@ -11,7 +11,6 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 
-import Business.Organization;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
@@ -50,7 +49,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     public void populateTree() {
         DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-       // Add the code for draw your system structure shown by JTree
+        // Add the code for draw your system structure shown by JTree
 
         DefaultMutableTreeNode networks = new DefaultMutableTreeNode("SystemAdmin");
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
@@ -65,9 +64,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         DeliveryMan deliveryMan;
         Restaurant restaurant;
 
-        DefaultMutableTreeNode customerListNode = new DefaultMutableTreeNode("Customer");
-        DefaultMutableTreeNode deliveryManListNode = new DefaultMutableTreeNode("Delivery");
-        DefaultMutableTreeNode restaurantListNode = new DefaultMutableTreeNode("Restaurant");
+        DefaultMutableTreeNode customerListNode = new DefaultMutableTreeNode("Patient");
+        DefaultMutableTreeNode deliveryManListNode = new DefaultMutableTreeNode("Pharmacy");
+        DefaultMutableTreeNode restaurantListNode = new DefaultMutableTreeNode("Hospital");
         networks.insert(customerListNode, 0);
         networks.insert(deliveryManListNode, 1);
         networks.insert(restaurantListNode, 2);
@@ -121,9 +120,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1680, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(209, 133, 133));
+        jPanel1.setBackground(new java.awt.Color(70, 107, 139));
 
-        jTree.setBackground(new java.awt.Color(151, 145, 151));
+        jTree.setBackground(new java.awt.Color(204, 204, 204));
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -148,7 +147,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(151, 145, 151));
+        jPanel2.setBackground(new java.awt.Color(70, 107, 139));
         jPanel2.setPreferredSize(new java.awt.Dimension(1680, 500));
 
         jLabel1.setText("Selected Node:");

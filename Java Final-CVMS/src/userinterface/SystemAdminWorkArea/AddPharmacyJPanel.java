@@ -93,7 +93,7 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
         lblAddressCDM.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblAddressCDM.setForeground(new java.awt.Color(204, 204, 204));
         lblAddressCDM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAddressCDM.setText("ADDRESS");
+        lblAddressCDM.setText("STREET ADDRESS");
         add(lblAddressCDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 103, -1));
 
         lblPasswordCDM.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
@@ -105,17 +105,22 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
         lblContactCDM.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblContactCDM.setForeground(new java.awt.Color(204, 204, 204));
         lblContactCDM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblContactCDM.setText("CONTACT");
+        lblContactCDM.setText("CONTACT NUMBER");
         add(lblContactCDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 103, 20));
 
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 165, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 165, -1));
 
         txtContact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 165, -1));
+        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 165, -1));
 
         txtFname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 165, -1));
+        txtFname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFnameActionPerformed(evt);
+            }
+        });
+        add(txtFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 165, -1));
 
         titleCreateDeliveryMan.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         titleCreateDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,7 +129,7 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
         add(titleCreateDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 810, -1));
 
         txtEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 165, -1));
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 165, -1));
 
         lblFname.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblFname.setForeground(new java.awt.Color(204, 204, 204));
@@ -133,7 +138,7 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
         add(lblFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 100, -1));
 
         txtAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 165, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 165, -1));
 
         btnCreateCDM.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         btnCreateCDM.setText("ADD");
@@ -144,7 +149,7 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
             }
         });
         add(btnCreateCDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 69, 25));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 170, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 170, -1));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/resize-1618977884522140887Pharmacy.jpeg"))); // NOI18N
@@ -177,7 +182,7 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
 
         boolean flag ;
 
-        flag = firstName.matches("^[a-zA-Z '-&]+$");
+        flag = firstName.matches("^[a-zA-Z '-]+$");
 
         if(flag == false) {
             JOptionPane.showMessageDialog(null, "Pharmacy name cannot have integer values");
@@ -186,16 +191,12 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
 
      //   flag = lastName.matches("^[a-zA-Z]+$");
 
-        if(!flag) {
-            JOptionPane.showMessageDialog(null, "Last name cannot have integer values");
-            return;
-        }
 
         String name = firstName + " " ;
 
         String email = txtEmail.getText();
 
-        flag = email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        flag = email.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
 
         if(!flag) {
             JOptionPane.showMessageDialog(null, "Email Address must be in format of example@domain.com");
@@ -227,17 +228,6 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
             }
         }
 
-        int age = 0;
-
-        try {
-
-            //age = Integer.parseInt(txtAge.getText());
-
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Age must have integers only");
-            return;
-        }
-
         String address = txtAddress.getText();
         String userName = txtUsername.getText();
         String password = txtPassword.getText();
@@ -248,15 +238,30 @@ public class AddPharmacyJPanel extends javax.swing.JPanel {
                 return;
             }
         }
-
+        
+        int age = 0;
         ecosystem.getDeliveryManDirectory().newDeliveryMan(name, address, email, phoneNumber, age);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(email);
         ecosystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new DeliverManRole());
 
         JOptionPane.showMessageDialog(null, "PHARMACY ADDED !!");
 
+        clearAll();
     }//GEN-LAST:event_btnCreateCDMActionPerformed
 
+    private void txtFnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFnameActionPerformed
+
+    private void clearAll() {
+    
+        txtAddress.setText("");
+        txtContact.setText("");
+        txtEmail.setText("");
+        txtFname.setText("");
+        txtPassword.setText("");
+        txtUsername.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackCDM;

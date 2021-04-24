@@ -162,7 +162,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/coronavirus.jpg"))); // NOI18N
         jLabel3.setMaximumSize(new java.awt.Dimension(1680, 700));
-        jLabel3.setMinimumSize(new java.awt.Dimension(1400, 600));
+        jLabel3.setMinimumSize(new java.awt.Dimension(1680, 700));
         jLabel3.setPreferredSize(new java.awt.Dimension(1680, 700));
         container.add(jLabel3, "card2");
 

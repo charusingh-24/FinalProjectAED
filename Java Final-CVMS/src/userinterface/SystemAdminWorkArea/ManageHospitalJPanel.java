@@ -81,14 +81,15 @@ public class ManageHospitalJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(151, 145, 151));
-        setSize(new java.awt.Dimension(1680, 800));
+        setMinimumSize(new java.awt.Dimension(1680, 700));
+        setPreferredSize(new java.awt.Dimension(1680, 700));
+        setSize(new java.awt.Dimension(1680, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleManageRestaurant.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleManageRestaurant.setForeground(new java.awt.Color(255, 255, 255));
         titleManageRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageRestaurant.setText("MANAGE HOSPITALS");
-        add(titleManageRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 550, 35));
+        titleManageRestaurant.setText("MANAGE HOSPITAL DETAILS");
+        add(titleManageRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 550, 20));
 
         tblRestaurant.setBorder(new javax.swing.border.MatteBorder(null));
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(

@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Menu.Menu;
 import Business.Menu.MenuDirectory;
 import Business.Order.Order;
+import Business.Order.OrderStatus;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
@@ -53,7 +54,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         this.orderdirectory=ecosystem.getOrderDirectory();
       
         this.userAccount = userAccount;
-        valueLabel.setText(userAccount.getUsername());
+        valueLabel.setText(userAccount.getEmployee().getName());
         populateRequestTable();
         populateRestaurantCombo();
     }
@@ -64,17 +65,16 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for(Order order:ecosystem.getOrderDirectory().getOrderDirectory()){
             
-            if(userAccount.getEmployee().getName().equals(order.getCustomer().getName())){
+            if(order.getCustomer() !=null && userAccount.getEmployee().getName().equals(order.getCustomer().getName())){
             
             Object[] row=new Object[8];
             row[0]=order;
-            row[1]=order.getMenu().getItemName();
-            row[2]=order.getQuantity() * order.getMenu().getPrice();
-            row[3]=order.getRestaurant().getRestaurantName();
-            row[4]=order.getMessage();
-            row[5]=order.getCustomer().getName();
+            row[1]=order.getCustomer().getName();
+            row[2]=order.getMenu().getItemName();
+            row[3]=order.getMenu().getPrice();
+            row[4]=order.getRestaurant().getRestaurantName();
+            row[5]=order.getMessage();
             row[6]=order.getOrderStatus();
-            row[7]=order.getQuantity();
             model.addRow(row);
                   
             }
@@ -139,22 +139,23 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(151, 145, 151));
+        setMinimumSize(new java.awt.Dimension(1680, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setBorder(new javax.swing.border.MatteBorder(null));
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ORDER-ID", "VACCINE-NAME", "DOSES", "ORGANIZATION", "ALLERGIES", "PATIENT", "STATUS", "ALLERGIES"
+                "PATIENT ID", "PATIENT NAME", "VACCINE-NAME", "DOSES REQUIRED", "HOSPITAL NAME", "ALLERGIES", "STATUS"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -211,7 +212,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "VACCINES", "DOSES(REQUIRED)"
+                "VACCINE PROVIDER", "DOSES REQUIRED"
             }
         ));
         jScrollPane2.setViewportView(tblItemPrice);
@@ -221,7 +222,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         boxItemList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(boxItemList, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 223, -1));
 
-        lblComment.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblComment.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         lblComment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblComment.setText("ALLERGIES (if any):");
         add(lblComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 414, 150, -1));
@@ -229,15 +230,15 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         txtComment.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 189, -1));
 
-        btnAddComment.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        btnAddComment.setText("ADD COMMENT");
+        btnAddComment.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btnAddComment.setText("SUBMIT");
         btnAddComment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnAddComment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddCommentActionPerformed(evt);
             }
         });
-        add(btnAddComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 445, -1, -1));
+        add(btnAddComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 80, 20));
 
         valueLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         valueLabel1.setText("Select Hospital:");
@@ -245,6 +246,9 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1680, 700));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1680, 700));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -261,7 +265,8 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
       Restaurant restaurant = ecosystem.getRestaurantDirectory().getRestaurant(restaurantName);
       Customer customer=ecosystem.getCustomerDirectory().getCustomer(userAccount.getEmployee().getName());
       Menu menu=(Menu) tblItemPrice.getValueAt(selectedRow, 0);
-      String status="Awaiting Approval";
+      
+      String status=OrderStatus.Vaccine_Requested.getValue();
       
       Order order=ecosystem.getOrderDirectory().newOrder();
       order.setCustomer(customer);
@@ -273,7 +278,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
       order.setAssign(false);
       
       
-      JOptionPane.showMessageDialog(null,"Vaccination request sent.");
+      JOptionPane.showMessageDialog(null,"Vaccination request generated.");
       populateRequestTable();
         
     }//GEN-LAST:event_btnConfirmActionPerformed

@@ -44,10 +44,10 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
             Object [] row = new Object[6];
             row[0] = cust;
             row[1] = cust.getName();
-            row[2] = cust.getEmail();
+            row[2] = cust.getAge();
             row[3] = cust.getHomeAddress();
-            row[4] = cust.getPhoneNumber();
-            row[5] = cust.getAge();
+            row[4] = cust.getEmail();
+            row[5] = cust.getPhoneNumber();
             deftabmdl.addRow(row);
         }
     }
@@ -121,10 +121,9 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 73, 23));
 
         titleManageCustomer.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        titleManageCustomer.setForeground(new java.awt.Color(255, 255, 255));
         titleManageCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleManageCustomer.setText("MANAGE PATIENT");
-        add(titleManageCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 780, -1));
+        titleManageCustomer.setText("MANAGE PATIENT DETAILS");
+        add(titleManageCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 540, 20));
 
         tblCustomer.setBorder(new javax.swing.border.MatteBorder(null));
         tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
@@ -132,7 +131,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Age", "Address", "Email", "Phone Number", "Username"
+                "Username", "Name", "Age", "Address", "Email", "Phone Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -159,6 +158,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1680, 700));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 

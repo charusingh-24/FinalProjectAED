@@ -31,6 +31,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author Divya Sharma
+ * @author charusingh
  */
 public class AddPatientJPanel extends javax.swing.JPanel {
 
@@ -217,7 +218,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         lblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assests/patient.jpeg"))); // NOI18N
-        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 780, 670));
+        lblBackground.setMaximumSize(new java.awt.Dimension(1680, 700));
+        lblBackground.setPreferredSize(new java.awt.Dimension(1680, 700));
+        add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1680, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -277,14 +280,14 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         for (Customer customer : ecosystem.getCustomerDirectory().getCustomerDirectory()) {
             if (customer.getEmail().equals(email)) {
-                JOptionPane.showMessageDialog(null, "Email Address already exists");
+                JOptionPane.showMessageDialog(null, "Email address already exists");
             }
         }
 
         String phoneNumber = txtContact.getText();
 
         if (phoneNumber.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits");
+            JOptionPane.showMessageDialog(null, "Phone Number must be of 10 digits");
             return;
         }
         flag = phoneNumber.matches("^[0-9]+$");
